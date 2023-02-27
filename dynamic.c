@@ -8,6 +8,7 @@
 #define MAX_ITERATIONS 1000
 
 int main(int argc, char **argv) {
+    start = clock();
     int i, j, rank, size;
     double realPart, imaginaryPart;
     int *calculatedMandelbrotSet;
@@ -83,5 +84,8 @@ int main(int argc, char **argv) {
     }
 
     MPI_Finalize();
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Elapsed time: %f seconds\n", );
     return 0;
 }
